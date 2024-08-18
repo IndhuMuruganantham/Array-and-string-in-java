@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Problem {
+    public static void main(String[] args) {
+        Scanner a = new Scanner(System.in);
+        int n = a.nextInt();
+        int[] s = new int[n];
+        for (int i = 0; i < n; i++) {
+            s[i] = a.nextInt();
+        }
+        int t = a.nextInt();
+        int[] result = Problem(s, t);
+        System.out.println( result[0] + ", " + result[1]);
+        a.close();
+    }
+
+    public static int[] Problem(int[] s, int t) {
+        for (int i = 0; i < s.length; i++) {
+            for (int j = i + 1; j < s.length; j++) {
+                if (s[i] + s[j] == t) {
+                    return new int[] { i, j };
+                }
+            }
+        }
+        return new int[] {};
+    }
+}
